@@ -11,4 +11,8 @@ export default class CreateListingDto {
   @IsOptional()
   @IsString()
   public description: string;
+  
+  @IsOptional()
+  @IsNumber()
+  public categoryId: number;
 }
