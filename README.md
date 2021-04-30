@@ -3,7 +3,7 @@
 
 **iAuctions-api** - iAuctions-api is a RESTful api to an eBay-like e-commerce auction site that will allow users to post auction listings, categorize listings, place bids on listings and comment on those listings.
 
-Time spent: **XX** hours spent in total
+Time spent: **37** hours spent in total
 
 ## User Stories
 
@@ -15,7 +15,7 @@ The following **required** functionality is completed:
 an auth token
 - [X] A user can `login` to the api by submitting a POST request to /login/ containing an email an password of a valid user. The endpoint should return
 an auth token
-- [ ] All endpoints except the `login` and `signup` endpoints require a valid Authorization token in the request Headers as a Bearer Token
+- [x] All endpoints except the `login` and `signup` endpoints require a valid Authorization token in the request Headers as a Bearer Token
 
 ### USERS
 
@@ -27,7 +27,7 @@ an auth token
 
 ### CATEGORIES
 
-- [ ] A user can get a list of categories by submitting a GET request to /categories/
+- [x] A user can get a list of categories by submitting a GET request to /categories/
   - SAMPLE RESPONSE
 
   ```json
@@ -47,7 +47,7 @@ an auth token
     ]
   ```
 
-- [ ] A user can create a category by submitting a POST request to /categories/
+- [x] A user can create a category by submitting a POST request to /categories/
   - SAMPLE REQUEST
 
   ```json
@@ -67,7 +67,7 @@ an auth token
     }
   ```
 
-- [ ] A user can get a details about a category by submitting a GET request to /categories/id. The Response should contain any listings associated with that category
+- [x] A user can get a details about a category by submitting a GET request to /categories/id. The Response should contain any listings associated with that category
   - SAMPLE RESPONSE
 
   ```json
@@ -91,7 +91,7 @@ an auth token
     }
   ```
 
-- [ ] A user can get a modify a category by submitting a PATCH request to /category/id/.
+- [x] A user can get a modify a category by submitting a PATCH request to /category/id/.
   - SAMPLE REQUEST
 
   ```json
@@ -111,7 +111,7 @@ an auth token
     }
   ```
 
-- [ ] A user can delete a category by submitting a DELETE request to /categories/id. The endpoint should return the deleted category or 204 NO CONTENT
+- [x] A user can delete a category by submitting a DELETE request to /categories/id. The endpoint should return the deleted category or 204 NO CONTENT
 
 ### LISTINGS
 
@@ -143,7 +143,7 @@ an auth token
     ]
   ```
 
-- [ ] A user can create a listing by submitting a POST request to /listings/
+- [x] A user can create a listing by submitting a POST request to /listings/
   - SAMPLE REQUEST (description and category are optional)
 
   ```json
@@ -170,7 +170,7 @@ an auth token
     },
   ```
 
-- [ ] A user can get a details about a listing by submitting a GET request to /listings/id. The Response should contain any comments & bids
+- [x] A user can get a details about a listing by submitting a GET request to /listings/id. The Response should contain any comments & bids
   - SAMPLE RESPONSE
 
   ```json
@@ -206,7 +206,7 @@ an auth token
     }
   ```
 
-- [ ] A user can get a modify a listing by submitting a PATCH request to /listings/id. A user can only edit her own listings.
+- [x] A user can get a modify a listing by submitting a PATCH request to /listings/id. A user can only edit her own listings.
   - SAMPLE REQUEST
 
   ```json
@@ -230,9 +230,9 @@ an auth token
     },
   ```
 
-- [ ] A user can delete a listing by submitting a DELETE request to /listings/id. The endpoint should return the deleted listing or 204 NO CONTENT
+- [x] A user can delete a listing by submitting a DELETE request to /listings/id. The endpoint should return the deleted listing or 204 NO CONTENT
 
-- [ ] A user can create add a comment to a listing by submitting a POST request to /listings/id/comments/. The comment is automatically associated with the user who submitted the comment
+- [x] A user can create add a comment to a listing by submitting a POST request to /listings/id/comments/. The comment is automatically associated with the user who submitted the comment
   - SAMPLE REQUEST
 
   ```json
@@ -276,7 +276,7 @@ an auth token
     }
   ```
 
-- [ ] A user can create add a bid to a listing by submitting a POST request to /listings/id/bids/. The bid is automatically associated with the user who submitted the bid. If the bid amount is less than or equal to the listing price, the request is rejected and an error message is returned. If the bid amount is greater than the listing price, the bid is saved and the listing price is updated to the bid amount
+- [x] A user can create add a bid to a listing by submitting a POST request to /listings/id/bids/. The bid is automatically associated with the user who submitted the bid. If the bid amount is less than or equal to the listing price, the request is rejected and an error message is returned. If the bid amount is greater than the listing price, the bid is saved and the listing price is updated to the bid amount
   - SAMPLE REQUEST
 
   ```json
