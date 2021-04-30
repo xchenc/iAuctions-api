@@ -2,11 +2,11 @@ import { NextFunction, Request, Response } from 'express';
 import { RequestWithUser } from 'interfaces/auth.interface';
 import { CreateUserDto } from 'dtos/users.dto';
 import User from 'models/users.model';
-import userService from 'services/users.service';
+import UserService from 'services/users.service';
 import { HttpException } from 'utils/util';
 
 class UsersController {
-  public userService = new userService();
+  public userService = new UserService();
 
   public getUsers = async (req: Request, res: Response, next: NextFunction) => {
     try {

@@ -17,6 +17,7 @@ class AuthController {
       next(error);
     }
   };
+  
 
   public logIn = async (req: Request, res: Response, next: NextFunction) => {
     const userData: User = req.body as User;

@@ -13,6 +13,7 @@ import {
 import User from 'models/users.model';
 import Comment from 'models/comments.model';
 import Bid from 'models/bids.model';
+import Category from 'models/category.model';
 
 export interface ListingAttributes {
   id: number;
@@ -20,9 +21,10 @@ export interface ListingAttributes {
   price: number;
   description: string;
   userId: number;
+  categoryId: number;
 }
 
-export type ListingCreationAttributes = Optional<ListingAttributes, 'id' | 'description'>;
+export type ListingCreationAttributes = Optional<ListingAttributes, 'id' | 'description' | 'categoryId'>;
 
 @Table({
   timestamps: true,
@@ -50,6 +52,11 @@ export default class Listing extends Model<ListingAttributes, ListingCreationAtt
   @AllowNull(false)
   @Column // type inferred automatically from type definition
   public userId: number;
+
+  @ForeignKey(() => Category)
+  @AllowNull(true)
+  @Column // type inferred automatically from type definition
+  public categoryId: number;
 
   // for belongs To:
   // userId refers to a field on this table

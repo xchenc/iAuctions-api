@@ -1,19 +1,17 @@
 import { Router } from 'express';
-import ListingsController from 'controllers/listings.controller';
-import CreateListingDto from 'dtos/listings.dtos';
+import CategoryController from 'controllers/category.controller';
+import CreateCategoryDto from 'dtos/category.dtos';
 import Route from 'interfaces/routes.interface';
 import validationMiddleware from 'middlewares/validation.middleware';
 import authMiddleware from 'middlewares/auth.middleware';
 import resourceExistenceMiddleware from '../middlewares/resource-existence.middleware';
 import { ModelDefined } from 'sequelize';
-import Listing from '../models/listings.model';
-import CreateCommentDto from '../dtos/comments.dtos';
-import CreateBidDto from '../dtos/bids.dtos';
+import Category from '../models/category.model';
 
-export default class ListingsRoute implements Route {
-  public path = '/listings';
+export default class CategoryRoute implements Route {
+  public path = '/categories';
   public router = Router();
-  public controller = new ListingsController();
+  public controller = new CategoryController();
 
   constructor() {
     this.initializeRoutes();
@@ -25,22 +23,22 @@ export default class ListingsRoute implements Route {
     this.router.post(
       this.makeRoute(''),
       authMiddleware,
-      validationMiddleware(CreateListingDto, 'body'),
+      validationMiddleware(CreateCategoryDto, 'body'),
       this.controller.create,
     );
 
     this.router.get(
       this.makeRoute('/:id(\\d+)'),
       authMiddleware, // requires auth
-      resourceExistenceMiddleware(Listing as ModelDefined<any, any>),
+      resourceExistenceMiddleware(Category as ModelDefined<any, any>),
       this.controller.getById,
     );
 
     this.router.patch(
       this.makeRoute('/:id(\\d+)'),
       authMiddleware, // requires auth
-      resourceExistenceMiddleware(Listing as ModelDefined<any, any>),
-      validationMiddleware(CreateListingDto, 'body', true),
+      resourceExistenceMiddleware(Category as ModelDefined<any, any>),
+      validationMiddleware(CreateCategoryDto, 'body', true),
       this.controller.update,
     );
 
@@ -48,20 +46,6 @@ export default class ListingsRoute implements Route {
       this.makeRoute('/:id(\\d+)'),
       authMiddleware, // requires auth
       this.controller.delete,
-    );
-
-    this.router.post(
-      this.makeRoute('/:id(\\d+)/comments'),
-      authMiddleware,
-      validationMiddleware(CreateCommentDto, 'body'),
-      this.controller.createComment,
-    );
-
-    this.router.post(
-      this.makeRoute('/:id(\\d+)/bids'),
-      authMiddleware,
-      validationMiddleware(CreateBidDto, 'body'),
-      this.controller.createBid,
     );
   }
 

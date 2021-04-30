@@ -3,6 +3,7 @@ import config from 'config';
 import Listing from 'models/listings.model';
 import User from 'models/users.model';
 import Bid from 'models/bids.model';
+import Category from 'models/category.model';
 import Comment from 'models/comments.model';
 import logger from 'utils/logger';
 
@@ -32,6 +33,6 @@ sequelize
     logger.info(`🔴 Unable to connect to the database: ${error}.`);
   });
 
-sequelize.addModels([User, Listing, Bid, Comment]);
+sequelize.addModels([User, Listing, Bid, Comment, Category]);
 
 export default sequelize;
